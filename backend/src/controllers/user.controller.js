@@ -13,7 +13,7 @@ import { encryptData } from "../utils/CryptoEncrypt.js";
 const options = {
     httpOnly: true,
     secure: true,
-    sameSite : 'Strict'
+    sameSite : 'None'
 };
 
 const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -302,11 +302,9 @@ const refreshToken = asyncHandler(async (req, res) => {
 // Logout user and clear JWT
 const logoutUser = asyncHandler(async (req, res) => {
     const { _id: userId } = req.user;
-    const { chat_app_jwt } = req.cookies;
 
-    let userInfo = await User.findOne({
-        $and: [{ _id: userId }, { refreshTokens: chat_app_jwt }],
-    });
+    let userInfo = await User.findById(userId);
+
     if (!userInfo) {
         res.clearCookie("chat_app_jwt", options);
         return res.status(404).json(new ApiError(404, "Invalid user."));
