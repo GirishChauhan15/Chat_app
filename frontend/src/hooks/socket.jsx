@@ -9,7 +9,9 @@ export const initializeSocket = (userId) => {
     socket = io(config?.backendUrl, {
       query : {
           userId
-      }
+      },
+      reconnectionAttempts: 5,
+      reconnectionDelayMax: 10000,
   })
   }
 
