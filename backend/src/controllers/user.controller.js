@@ -13,7 +13,7 @@ import { encryptData } from "../utils/CryptoEncrypt.js";
 const options = {
     httpOnly: true,
     secure: true,
-    sameSite : 'none'
+    sameSite : 'Strict'
 };
 
 const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
