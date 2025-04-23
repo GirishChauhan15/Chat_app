@@ -10,8 +10,7 @@ export const initializeSocket = (userId) => {
       query : {
           userId
       },
-      reconnectionAttempts: 5,
-      reconnectionDelayMax: 10000,
+      autoConnect:false
   })
   }
 

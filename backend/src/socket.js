@@ -9,9 +9,7 @@ const server = createServer(app)
 const io = new Server(server, {
     cors :{
         origin : process.env.CORS_ORIGIN
-    },
-    pingInterval: 25000,
-    pingTimeout: 5000
+    }
 })
 
 // online user list 
