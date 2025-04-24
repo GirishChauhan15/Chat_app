@@ -11,8 +11,8 @@ function Input({inputId, type='text', placeholderInfo = "", className='', isRequ
       type === 'search' ? 
       <label htmlFor={inputId ? inputId : inputIdInfo} className="flex flex-col text-white">
           <div className="relative">
-          <input ref={ref} type={type === 'search' && 'text'} id={inputId ? inputId : inputIdInfo} className={`border-2 text-xs sm:text-sm border-zinc-700 bg-zinc-800 rounded-sm px-5 py-2 focus:ring-2 focus:ring-accent focus:outline-none w-full pl-10 ${className}`} placeholder={placeholderInfo} required={isRequired} {...props} />
-          <span className="absolute left-2 top-1/2 -translate-y-1/2 z-50 focus:ring-2 focus:ring-accent focus:outline-none">
+          <input ref={ref} type={type === 'search' && 'text'} id={inputId ? inputId : inputIdInfo} className={`border-2 text-xs sm:text-sm border-zinc-700 bg-zinc-800 rounded-sm px-2 sm:px-5 py-2 focus:ring-2 focus:ring-accent focus:outline-none w-full sm:pl-10 ${className}`} placeholder={placeholderInfo} required={isRequired} {...props} />
+          <span className="hidden sm:block absolute left-2 top-1/2 -translate-y-1/2 z-50 focus:ring-2 focus:ring-accent focus:outline-none">
              <Search className="size-5 stroke-accent" />
           </span>
           </div>

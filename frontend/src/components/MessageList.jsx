@@ -29,7 +29,7 @@ function MessageList({
   }, [selectedUser?.userId]);
 
   return (
-    <div tabIndex={messages?.length > 0 ? 0 : ''}  className="focus-visible:ring-2 ring-accent outline-none p-1 focus:rounded-sm">
+    <div tabIndex={messages?.length > 0 ? 0 : ''}  className="focus-visible:ring-2 ring-accent outline-none p-1 focus:rounded-sm flex flex-col justify-end min-h-full h-fit">
       {/* LoadMore spinner */}
       {loadMoreLoading && (
         <div className="flex justify-center items-center p-3">
@@ -37,7 +37,7 @@ function MessageList({
         </div>
       )}
       {/* End */}
-      <ul className={`flex flex-col justify-end gap-6 min-h-[90%] h-fit ${isTyping && 'pb-10'}`}>
+      <ul className={`h-fit ${isTyping && 'pb-10'}`}>
 
       {/* Message List Skeleton */}
       {loading && <MessageSkeleton />}

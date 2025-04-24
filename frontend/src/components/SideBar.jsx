@@ -1,5 +1,5 @@
 import { User2Icon } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useId, useState } from "react";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -29,6 +29,7 @@ function SideBar() {
   const [filteredUsers, setFilteredUsers] = useState([]);
   const { searchBoxRef, chatBoxRef } = useUser();
   const [showOnline, setShowOnline] = useState(false);
+  const showOnlineInputId = useId()
 
   const allUserInfo = async (page, limit, signal) => {
     setIsValidReq(false);
@@ -180,15 +181,15 @@ function SideBar() {
       <hr className="border-accent border rounded-sm" />
 
       {/* Show Online user section */}
-      <div className="flex gap-1 sm:gap-2 w-full flex-wrap items-center justify-center sm:justify-start my-4 text-[.6rem] sm:text-sm">
-        <input onChange={()=>{
+      <label htmlFor={showOnlineInputId} className="flex gap-1 sm:gap-2 w-full flex-wrap items-center justify-center sm:justify-start my-4 text-[.6rem] sm:text-sm cursor-pointer select-none">
+        <input id={showOnlineInputId} onChange={()=>{
           setShowOnline(prev=> !prev)
           if(searchBoxRef?.current) {
             searchBoxRef.current.value = ''
           }
-        }} className="size-3 focus-visible:ring-2 accent-white ring-accent outline-none" type="checkbox" />
+        }} className="size-3 focus-visible:ring-2 accent-white ring-accent outline-none cursor-pointer" type="checkbox" />
         Show Online
-      </div>
+      </label>
       {/* End */}
 
 
