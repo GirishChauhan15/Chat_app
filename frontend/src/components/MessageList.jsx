@@ -37,7 +37,7 @@ function MessageList({
         </div>
       )}
       {/* End */}
-      <ul className={`h-fit ${isTyping && 'pb-10'}`}>
+      <ul className={`h-fit flex flex-col gap-4 sm:gap-6 ${isTyping && 'pb-10'}`}>
 
       {/* Message List Skeleton */}
       {loading && <MessageSkeleton />}
