@@ -1,4 +1,4 @@
-import {Home, Login, Profile, SignUp} from './pages'
+import {Home, Login, NotFound, Profile, SignUp} from './pages'
 import { Routes, Route } from 'react-router-dom'
 import Layout from './Layout'
 import { AuthLayout } from './components'
@@ -10,6 +10,7 @@ function App() {
         <Route path={"/signup"} element={<AuthLayout><SignUp /></AuthLayout>} />
         <Route path={"/login"} element={ <AuthLayout><Login /></AuthLayout>} />
         <Route path={"/profile"} element={<AuthLayout><Profile /></AuthLayout>} />
+        <Route path={"*"} element={<NotFound />} />
       </Route>
     </Routes>
   )
