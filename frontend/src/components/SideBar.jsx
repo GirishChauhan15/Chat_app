@@ -201,7 +201,7 @@ function SideBar() {
 
       {/* Actual Users list */}
       <ul className="flex flex-col gap-4 min-h-fit">
-        {!loading && filteredUsers && filteredUsers?.length > 0 ? (
+        {!loading ? filteredUsers && filteredUsers?.length > 0 ? (
           filteredUsers?.map((user, i) => (
             <li
               key={user?._id}
@@ -255,7 +255,7 @@ function SideBar() {
           ))
         ) : (
           <p className="text-center text-xs text-zinc-300">{showOnline ? "All quiet here." : "User Not Found!"}</p>
-        )}
+        ) : null}
       </ul>
       
        {/* LoadMore spinner */}

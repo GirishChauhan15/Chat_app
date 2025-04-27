@@ -44,7 +44,7 @@ function MessageList({
       {/* End */}
 
       {/* Actual messages list */}
-        {!loading && messages?.length > 0 &&
+        {!loading ? messages?.length > 0 ?
           messages?.map((message) => {
             let decryptedImage;
             let decryptedMessage;
@@ -177,7 +177,7 @@ function MessageList({
                 </aside>
               )}
             </li>
-        )})}
+        )}) : <div className="flex items-center justify-center"><p className="text-center text-[.6rem] sm:text-xs bg-zinc-700/30 w-fit p-2 rounded-sm border-zinc-500 border">No messages yet. Start a conversation!</p></div> : null}
       </ul>
       {/* End */}
 

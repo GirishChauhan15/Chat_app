@@ -220,7 +220,9 @@ function MessageBox() {
       dispatch(setAllMessages([...allMessages]));
       toast.error(error?.response?.data?.message || error?.message);
     } finally {
-      messageListRef?.current?.scrollIntoView({ block: "end" });
+      if (messageListRef?.current) {
+        messageListRef?.current?.scrollIntoView();
+      }
     }
   };
 
@@ -231,10 +233,10 @@ function MessageBox() {
   }, [allMessages]);
 
   useEffect(() => {
-    if (messageListRef?.current && messagePage === 1) {
-      messageListRef?.current?.scrollIntoView({ block: "end" });
+    if (messageListRef?.current) {
+      messageListRef?.current?.scrollIntoView();
     }
-  }, [messagesCopy]);
+  }, [messagesCopy, selectedUser?.userId, !loading]);
 
   useEffect(() => {
     socket = getSocket();

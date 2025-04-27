@@ -78,7 +78,7 @@ const registerNewUser = asyncHandler(async (req, res) => {
             .status(400)
             .json(new ApiError(400, "Invalid Email address."));
     if (!passwordRegex?.test(password))
-        return res.status(400).json(new ApiError(400, "Invalid password."));
+        return res.status(400).json(new ApiError(400, "Password must be 8+ characters with uppercase, lowercase, number, and special character."));
 
     // Check if user exists
     const isUserPresent = await User.findOne({ email });
