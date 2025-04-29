@@ -14,8 +14,8 @@ let whitelist = [process.env.CORS_ORIGIN, process.env.KEEPALIVE]
 
 let corsOptions = {
   origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      callback(null, true)
+    if (whitelist.includes(origin) || !origin) {
+      callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'))
     }

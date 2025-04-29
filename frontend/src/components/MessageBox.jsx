@@ -233,7 +233,7 @@ function MessageBox() {
   }, [allMessages]);
 
   useEffect(() => {
-    if (messageListRef?.current) {
+    if (messageListRef?.current && messagePage === 1) {
       messageListRef?.current?.scrollIntoView();
     }
   }, [messagesCopy, selectedUser?.userId, !loading]);
