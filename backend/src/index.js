@@ -1,7 +1,6 @@
 import server from './socket.js'
 import db_connect from "./db/index.js";
 import 'dotenv/config'
-import ping from './Ping.js';
 
 const port = process.env.PORT || 8000
 
@@ -11,7 +10,6 @@ db_connect().then(()=>{
     })
 
     server.listen(port, ()=>{
-        ping()
         // console.log(`Port is running at http://localhost:${port}`)
     })
 }).catch(err=>{
