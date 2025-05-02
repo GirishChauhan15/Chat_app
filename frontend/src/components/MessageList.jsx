@@ -177,7 +177,7 @@ function MessageList({
                 </aside>
               )}
             </li>
-        )}) : <div className="flex items-center justify-center"><p className="text-center text-[.6rem] sm:text-xs bg-zinc-700/30 w-fit p-2 rounded-sm border-zinc-500 border">No messages yet. Start a conversation!</p></div> : null}
+        )}) : !isTyping && <div className="flex items-center justify-center"><p className="text-center text-[.6rem] sm:text-xs bg-zinc-700/30 w-fit p-2 rounded-sm border-zinc-500 border">No messages yet. Start a conversation!</p></div> : null}
       </ul>
       {/* End */}
 
